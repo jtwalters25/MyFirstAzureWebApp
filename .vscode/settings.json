@@ -1,0 +1,5 @@
+{
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "bin\\Release\\net7.0\\publish",
+    "appService.defaultWebAppToDeploy": "/subscriptions/99512fca-2ea7-4444-8ba9-d8ba057233e5/resourceGroups/lab-rg/providers/Microsoft.Web/sites/demoDayWebAppJw"
+}

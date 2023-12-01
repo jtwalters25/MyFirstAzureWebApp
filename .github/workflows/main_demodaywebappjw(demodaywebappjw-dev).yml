@@ -55,6 +55,21 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_0A589AF5E8224C019B5555FBF0130FFE }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_C1543F9B0E4C420AA2B003F6C26ADA01 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B24E9260CA57426BA6655C3EE2B63898 }}
+          enable-AzPSSession: true
+  
+      - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az account show
+
+      - name: Azure PowerShell script
+        uses: azure/powershell@v1.2.0
+        with:
+          azPSVersion: "latest"
+          inlineScript: |
+            Get-AzContext
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp

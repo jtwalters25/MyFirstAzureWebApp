@@ -44,12 +44,18 @@ jobs:
       id-token: write #This is required for requesting the JWT
 
     steps:
+
+      - uses: azure/login@v1
+        with:
+         creds: ${{ secrets.AZURE_CREDENTIALS }}
+         enable-AzPSSession: true
+
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
           name: .net-app
       
-      - name: Login to Azure
+      - name: 'Az CLI Login'
         uses: azure/login@v1
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_0A589AF5E8224C019B5555FBF0130FFE }}
